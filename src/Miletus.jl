@@ -44,6 +44,7 @@ include("utils/qr.jl")
 
 include("observables.jl")
 include("contracts.jl")
+include("contractObservable.jl")
 include("process.jl")
 
 

@@ -4,6 +4,7 @@ abstract type AbstractSingleModel <: AbstractModel end
 
 value(m::AbstractModel, ::DateObs) = startdate(m)
 value(m::AbstractModel, x::ConstObs) = x.val
+value(m::AbstractModel, c::ValueObs) = value(m, c.contract)
 value(m::AbstractModel, ::Zero) = 0*numeraire(m)
 value(m::AbstractModel, c::Amount) = value(m, c.o)
 value(m::AbstractModel, c::Scale{ConstObs{T},C}) where {T,C} = c.s.val * value(m, c.c)
